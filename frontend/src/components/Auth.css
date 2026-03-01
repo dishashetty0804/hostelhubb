@@ -1,0 +1,743 @@
+/* Auth.css - Complete styling for HostelHub authentication pages */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: #f5f7fa;
+}
+
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.auth-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 550px;
+  overflow: hidden;
+  animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-header {
+  text-align: center;
+  padding: 40px 40px 20px;
+}
+
+.auth-header h1 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.auth-header h1 span {
+  color: #667eea;
+  position: relative;
+}
+
+.auth-header h1 span::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 3px;
+}
+
+.auth-header p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+/* Server Status */
+.server-status {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.server-status.online {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.server-status.offline {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Login Tabs (Student/Admin) */
+.login-tabs {
+  display: flex;
+  padding: 0 40px;
+  gap: 15px;
+  border-bottom: 2px solid #f0f0f0;
+  margin-bottom: 20px;
+}
+
+.tab {
+  flex: 1;
+  padding: 15px 12px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: 8px 8px 0 0;
+}
+
+.tab:hover {
+  color: #667eea;
+  background: #f8f9ff;
+}
+
+.tab.active {
+  color: #667eea;
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 3px 3px 0 0;
+}
+
+.tab:first-child.active::after {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.tab:last-child.active::after {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* Role Selection Tabs (Student/Admin Registration) */
+.role-tabs {
+  display: flex;
+  padding: 0 40px 20px;
+  gap: 15px;
+}
+
+.role-tab {
+  flex: 1;
+  padding: 15px;
+  background: none;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.role-tab:hover {
+  border-color: #667eea;
+  color: #667eea;
+  background: #f8f9ff;
+  transform: translateY(-2px);
+}
+
+.role-tab.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.role-tab.active .tab-icon {
+  filter: brightness(0) invert(1);
+}
+
+.tab-icon {
+  font-size: 20px;
+}
+
+/* Form Container */
+.auth-form {
+  padding: 20px 40px 40px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  background: #fafafa;
+  font-family: inherit;
+}
+
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+  border-color: #b0b0b0;
+  background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+  background: white;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #999;
+  font-size: 14px;
+}
+
+.form-group input.error-input,
+.form-group select.error-input,
+.form-group textarea.error-input {
+  border-color: #dc3545;
+  background: #fff8f8;
+}
+
+.form-group input.error-input:focus,
+.form-group select.error-input:focus,
+.form-group textarea.error-input:focus {
+  box-shadow: 0 0 0 4px rgba(220, 53, 69, 0.1);
+}
+
+/* Field Error Messages */
+.field-error {
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 6px;
+  display: block;
+  font-weight: 500;
+  padding-left: 5px;
+}
+
+/* Hint Text (for admin secret key, etc.) */
+.hint-text {
+  display: block;
+  color: #666;
+  font-size: 12px;
+  margin-top: 5px;
+  font-style: italic;
+  padding-left: 5px;
+}
+
+/* Buttons */
+.btn-login {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-login::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-login:hover::before {
+  left: 100%;
+}
+
+.btn-login:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn-login:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-login:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: linear-gradient(135deg, #a0a0a0 0%, #808080 100%);
+}
+
+/* Loading spinner for button */
+.btn-login:disabled {
+  position: relative;
+  color: transparent;
+}
+
+.btn-login:disabled::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  margin-left: -10px;
+  margin-top: -10px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Message Boxes */
+.error-message,
+.success-message {
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.error-message {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.success-message {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Admin and Student Sections (for login page) */
+.admin-section,
+.student-section {
+  margin-top: 30px;
+}
+
+.admin-section h3,
+.student-section h3 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 18px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 12px;
+  position: relative;
+}
+
+.admin-section h3::after,
+.student-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 3px;
+}
+
+/* Student Grid (for login page - optional) */
+.students-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  max-height: 350px;
+  overflow-y: auto;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.students-grid::-webkit-scrollbar {
+  width: 8px;
+}
+
+.students-grid::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.students-grid::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+.students-grid::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Student and Admin Quick Buttons */
+.student-btn,
+.admin-quick-btn {
+  padding: 18px;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.student-btn:hover,
+.admin-quick-btn:hover {
+  border-color: #667eea;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.15);
+}
+
+.student-btn:active,
+.admin-quick-btn:active {
+  transform: translateY(-1px);
+}
+
+.student-name {
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+.student-email {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+  word-break: break-all;
+}
+
+.student-password {
+  font-size: 12px;
+  color: #28a745;
+  font-weight: 600;
+  background: #e8f5e9;
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* Info Box */
+.info-box {
+  margin-top: 30px;
+  padding: 20px;
+  background: #e8f4fd;
+  border-radius: 12px;
+  text-align: center;
+  border: 2px solid #b8daff;
+  transition: all 0.3s ease;
+}
+
+.info-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.15);
+}
+
+.info-box p {
+  color: #004085;
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.info-box a {
+  color: #0056b3;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.info-box a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #0056b3;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.info-box a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Admin Hint */
+.admin-hint {
+  margin-top: 15px;
+  font-size: 13px;
+  color: #666;
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px dashed #aaa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .auth-card {
+    max-width: 100%;
+    margin: 10px;
+  }
+  
+  .auth-header {
+    padding: 30px 20px 15px;
+  }
+  
+  .auth-header h1 {
+    font-size: 28px;
+  }
+  
+  .login-tabs,
+  .role-tabs {
+    padding: 0 20px;
+  }
+  
+  .auth-form {
+    padding: 15px 20px 30px;
+  }
+  
+  .role-tab {
+    padding: 12px;
+    font-size: 14px;
+  }
+  
+  .students-grid {
+    grid-template-columns: 1fr;
+    max-height: 250px;
+  }
+  
+  .tab {
+    padding: 12px 8px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .role-tabs {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .role-tab {
+    width: 100%;
+  }
+  
+  .auth-header h1 {
+    font-size: 24px;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 12px 14px;
+  }
+  
+  .btn-login {
+    padding: 14px;
+  }
+  
+  .info-box {
+    padding: 15px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .auth-wrapper {
+    background: white;
+    padding: 0;
+  }
+  
+  .auth-card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  
+  .btn-login,
+  .student-btn,
+  .admin-quick-btn,
+  .role-tabs,
+  .login-tabs {
+    display: none;
+  }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  .auth-card {
+    background: #2d2d2d;
+  }
+  
+  .auth-header h1 {
+    color: #fff;
+  }
+  
+  .auth-header p {
+    color: #ccc;
+  }
+  
+  .form-group label {
+    color: #fff;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: #3d3d3d;
+    border-color: #555;
+    color: #fff;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    background: #4d4d4d;
+  }
+  
+  .student-btn,
+  .admin-quick-btn {
+    background: #3d3d3d;
+    border-color: #555;
+  }
+  
+  .student-name {
+    color: #fff;
+  }
+  
+  .student-email {
+    color: #ccc;
+  }
+  
+  .info-box {
+    background: #2d3d4d;
+    border-color: #3d5d7d;
+  }
+  
+  .info-box p {
+    color: #aaccff;
+  }
+  
+  .info-box a {
+    color: #8bb9ff;
+  }
+  
+  .role-tab {
+    background: #3d3d3d;
+    color: #ccc;
+    border-color: #555;
+  }
+  
+  .role-tab:hover {
+    border-color: #8bb9ff;
+    color: #8bb9ff;
+  }
+  
+  .role-tab.active {
+    background: linear-gradient(135deg, #4a6bff 0%, #8a5bd9 100%);
+    color: white;
+  }
+  
+  .tab {
+    color: #ccc;
+  }
+  
+  .tab:hover {
+    color: #8bb9ff;
+  }
+  
+  .tab.active {
+    color: #8bb9ff;
+  }
+  
+  .admin-section h3,
+  .student-section h3 {
+    color: #fff;
+    border-bottom-color: #444;
+  }
+  
+  .hint-text {
+    color: #aaa;
+  }
+}

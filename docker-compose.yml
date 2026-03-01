@@ -1,0 +1,41 @@
+services:
+  mongodb:
+    image: mongo:6
+    container_name: hostelhub-mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - hostelhub-net
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./backend
+    container_name: hostelhub-backend
+    restart: always
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/hostelhub
+      - JWT_SECRET=your_jwt_secret_key_2026
+      - PORT=5000
+      - NODE_ENV=production
+    ports:
+      - "5000:5000"
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    networks:
+      - hostelhub-net
+
+networks:
+  hostelhub-net:
+    driver: bridge
+
+volumes:
+  mongo-data:
+    driver: local

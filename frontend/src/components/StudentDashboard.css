@@ -1,0 +1,486 @@
+/* ==================== StudentDashboard.css ==================== */
+
+/* ---------- Global / Base ---------- */
+.student-dashboard {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+  color: #333; /* default text color */
+}
+
+/* ---------- Header ---------- */
+.student-header {
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+  color: #333;
+  margin: 0;
+}
+
+.logo h1 span {
+  color: #667eea;
+}
+
+.logo p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.user-avatar {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.user-name {
+  font-weight: 600;
+  color: #333;
+}
+
+.user-email {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.logout-btn {
+  background: #fee9e9;
+  border: 2px solid #ff6b6b;
+  color: #ff6b6b;
+  padding: 0.5rem 1.2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logout-btn:hover {
+  background: #ff6b6b;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+/* ---------- Welcome Banner ---------- */
+.welcome-banner {
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 20px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.banner-content h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.banner-content p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.quick-stats {
+  display: flex;
+  gap: 2rem;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+.stat-card {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: block;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+}
+
+.stat-card.pending .stat-value { color: #ffd93d; }
+.stat-card.progress .stat-value { color: #6c5ce7; }
+.stat-card.resolved .stat-value { color: #51cf66; }
+
+/* ---------- Main Content Layout ---------- */
+.student-main {
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 2rem;
+}
+
+/* ---------- Form Container ---------- */
+.complaint-form-container,
+.complaints-list-container {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.section-header h3 {
+  color: #333;
+  margin-bottom: 0.3rem;
+  font-size: 1.3rem;
+}
+
+.section-header p {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- Form Styles ---------- */
+.complaint-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.complaint-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.complaint-form select,
+.complaint-form textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  background: #fafafa;
+  color: #333; /* Important: text color inside inputs */
+}
+
+.complaint-form select:focus,
+.complaint-form textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  background: white;
+}
+
+.complaint-form input::placeholder,
+.complaint-form textarea::placeholder {
+  color: #999;
+}
+
+/* Priority radio options */
+.priority-options {
+  display: flex;
+  gap: 1rem;
+}
+
+.priority-option {
+  flex: 1;
+  cursor: pointer;
+}
+
+.priority-option input {
+  display: none;
+}
+
+.priority-option span {
+  display: block;
+  padding: 0.8rem;
+  text-align: center;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.priority-option.selected .priority-low {
+  background: #e8f5e9;
+  border-color: #51cf66;
+  color: #2b8a3e;
+}
+
+.priority-option.selected .priority-medium {
+  background: #fff3e0;
+  border-color: #ffd43b;
+  color: #e67700;
+}
+
+.priority-option.selected .priority-high {
+  background: #ffe3e3;
+  border-color: #ff6b6b;
+  color: #c92a2a;
+}
+
+.priority-low { color: #51cf66; }
+.priority-medium { color: #ffd43b; }
+.priority-high { color: #ff6b6b; }
+
+/* Submit button */
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ---------- Complaints Timeline ---------- */
+.complaints-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.timeline-item {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 1.2rem;
+  border-left: 4px solid #667eea;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.complaint-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.complaint-id {
+  background: #e0e0e0;
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.priority-badge {
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+}
+
+.priority-low {
+  background: #51cf66;
+}
+.priority-medium {
+  background: #ffd43b;
+  color: #333;
+}
+.priority-high {
+  background: #ff6b6b;
+}
+
+/* Category and description – ensure text is dark */
+.complaint-category {
+  color: #2c3e50;
+  margin: 0.5rem 0;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.complaint-description {
+  color: #2c3e50 !important;  /* Force dark color */
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.complaint-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 0.8rem;
+  font-size: 0.9rem;
+}
+
+.status-badge {
+  padding: 0.2rem 1rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.status-pending {
+  background: #fff3e0;
+  color: #e67700;
+}
+.status-in-progress {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+.status-resolved {
+  background: #e8f5e9;
+  color: #2b8a3e;
+}
+
+.complaint-date {
+  color: #666;
+}
+
+/* ---------- Empty State ---------- */
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+.empty-state h4 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+  color: #666;
+}
+
+/* ---------- Messages ---------- */
+.error-message {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #f5c6cb;
+}
+
+.success-message {
+  background: #d4edda;
+  color: #155724;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #c3e6cb;
+}
+
+/* ---------- Loading ---------- */
+.student-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #f5f7fa;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #e0e0e0;
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 968px) {
+  .student-main {
+    grid-template-columns: 1fr;
+  }
+  .welcome-banner {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .user-menu {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 576px) {
+  .priority-options {
+    flex-direction: column;
+  }
+  .quick-stats {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .stat-card {
+    flex: 1 1 40%;
+  }
+}
